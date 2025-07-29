@@ -1,6 +1,4 @@
-def test_placeholder():
-# test_main.py
-"""
+"""test_main.py
 Unit tests for PHILATELY-AI Desktop App main module.
 """
 
@@ -9,14 +7,20 @@ import tkinter as tk
 from desktop_app.main import PhilatelyAIDesktopApp
 
 def test_app_initialization():
-    root = tk.Tk()
+    try:
+        root = tk.Tk()
+    except tk.TclError:
+        pytest.skip("Tkinter display not available")
     app = PhilatelyAIDesktopApp(root)
     assert app.root == root
     assert hasattr(app, 'log_box')
     root.destroy()
 
 def test_log_function():
-    root = tk.Tk()
+    try:
+        root = tk.Tk()
+    except tk.TclError:
+        pytest.skip("Tkinter display not available")
     app = PhilatelyAIDesktopApp(root)
     app.log("Test log message")
     assert "Test log message" in app.log_messages

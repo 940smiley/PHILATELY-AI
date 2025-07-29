@@ -1,4 +1,3 @@
-test('placeholder', () => {
 // test_app.js
 // Unit tests for PHILATELY-AI Web App main module.
 
